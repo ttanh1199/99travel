@@ -1,0 +1,90 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<div class="site-section" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-5 mb-md-0">
+            <img src="{% static 'images/hero_bg_2.jpg' %}" alt="Image" class="img-fluid rounded">
+          </div>
+          <div class="col-md-6 pl-md-5">
+            <h2 class="font-weight-light text-black mb-4">Về công ty</h2>
+            <p>Sau 25 năm phát triển bền vững, từ đội ngũ tiên phong trở thành đơn vị dẫn đầu, chúng tôi đã dệt nên những hành trình gắn kết kỳ diệu và trở thành một phần giá trị trong cuộc sống của bạn. Những giá trị mà chúng tôi nỗ lực hướng đó chính là: “Giá trị mới mẻ, Giá trị lòng tin và Giá trị vượt trội”.</p>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center"><span class="icon-check2 text-primary h3 mr-2"></span><span>Đưa 99Travel trở thành một phần giá trị cốt lõi trong cuộc sống của bạn</span></li>
+              <li class="d-flex align-items-center"><span class="icon-check2 text-primary h3 mr-2"></span><span>Sự chuyên nghiệp trong phục vụ</span></li>
+              <li class="d-flex align-items-center"><span class="icon-check2 text-primary h3 mr-2"></span><span>Cảm xúc thăng hoa suốt chuyến đi</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+         <div class="row justify-content-center mb-5" data-aos="fade-up">
+          <div class="col-md-7">
+            <h2 class="font-weight-light text-black text-center">Nhóm phát triển</h2>
+          </div>
+        </div>
+        <div class="row">
+        {%for team in Team%}
+          <div class="col-md-6 col-lg-4 text-center mb-5" data-aos="fade-up">
+            <img src="{{team.anhDaiDien.url}}" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+            <h2 class="text-black font-weight-light mb-4">{{team.hoTen}}</h2>
+            <p class="mb-4">{{team.gioiThieu}}</p>
+            <p>
+              <a href="{{team.twitter}}" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
+              <a href="{{team.instagram}}" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+              <a href="{{team.facebook}}" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section block-13 bg-light">
+  
+
+    <div class="container" data-aos="fade">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7">
+            <h2 class="font-weight-light text-black text-center">Trải nghiệm</h2>
+          </div>
+        </div>
+
+        <div class="nonloop-block-13 owl-carousel">
+
+          {% for review in Review%}
+          <div class="item">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 mb-5">
+                  <img src="{{review.anhNen.url}}" alt="Image" class="img-md-fluid">
+                </div>
+                <div class="overlap-left col-lg-6 bg-white p-md-5 align-self-center">
+                  <p class="text-black lead">&ldquo;{{review.noiDung}}&rdquo;</p>
+                  <p class="">&mdash; <em>{{review.hoTen}}</em>, <a href="#">Traveler</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section border-top">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h2 class="mb-5 text-black">Bạn muốn du lịch cùng chúng tôi ?</h2>
+            <p class="mb-0"><a href="booking.html" class="btn btn-primary py-3 px-5 text-white">Đặt vé</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+{% endblock content %}
